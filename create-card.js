@@ -209,7 +209,6 @@ class CardCreator {
 
     const canvas = createCanvas(128, 128);
     const ctx = canvas.getContext('2d');
-
     const crestLayers = await Promise.all(crests.map(crest => loadImage(crest)));
 
     for (const layer of crestLayers) {
@@ -316,7 +315,7 @@ class CardCreator {
       'FreeCompany.Crest', 'FreeCompany.Tag', 'Minions.*.dummy', 'Mounts.*.dummy',
     ];
 
-    const characterInfoUrl = new URL(`https://xivapi.com/character/${encodeURIComponent(characterId)}`)
+    const characterInfoUrl = new URL(`http://127.0.0.1:5002/character/${encodeURIComponent(characterId)}`)
     characterInfoUrl.searchParams.set('language', supportedLanguage);
     characterInfoUrl.searchParams.set('extended', '1');
     characterInfoUrl.searchParams.set('data', 'FC,MIMO');
@@ -330,8 +329,8 @@ class CardCreator {
 
     const customImagePromise = customImage != null ? loadImage(customImage) : Promise.resolve();
     const portraitPromise = dataPromise.then(data => loadImage(data.Character.Portrait));
-    const deityPromise = dataPromise.then(data => loadImage(`https://xivapi.com/${data.Character.GuardianDeity.Icon}`));
-    const gcRankPromise = dataPromise.then(data => data.Character.GrandCompany.Company != null ? loadImage(`https://xivapi.com/${data.Character.GrandCompany.Rank.Icon}`) : null);
+    const deityPromise = dataPromise.then(data => loadImage(`${data.Character.GuardianDeity.Icon}`));
+    const gcRankPromise = dataPromise.then(data => data.Character.GrandCompany.Company != null ? loadImage(`${data.Character.GrandCompany.Rank.Icon}`) : null);
     const fcCrestPromise = dataPromise.then(data => data.Character.FreeCompanyName != null ? this.createCrest(data.FreeCompany.Crest) : null);
 
     // Build canvas and only await data, when actually needed
