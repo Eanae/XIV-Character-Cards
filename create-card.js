@@ -253,8 +253,8 @@ class CardCreator {
       }
     }
 
-    // If there is no OffHand, the MainHand item level counts twice
-    if (gearset.Offhand != null && typeof gearset.MainHand != 'number') {
+    // Handle the gearset not having the offhand property, doesn't exist for DoW/DoM
+    if (!gearset.hasOwnProperty('Offhand') && typeof gearset.MainHand != 'number') {
       const piece = gearset.MainHand;
 
       // If this item is a special one, increase the total item level by only 1
