@@ -6,7 +6,7 @@ const rateLimit = require("express-rate-limit");
 
 const { CardCreator } = require('./create-card');
 
-const port = process.env.PORT || 5000;
+const port = process.env.PORT || 5001;
 const xivApiKey = typeof process.env.XIV_API_KEY === 'string' && process.env.XIV_API_KEY !== '' ? process.env.XIV_API_KEY : undefined;
 const supportedLanguages = ['en', 'ja', 'de', 'fr'];
 
@@ -36,7 +36,7 @@ const limiter = rateLimit({
 async function getCharacterIdByName(world, name, retries = 1) {
   if (retries === -1) return undefined;
 
-  const searchUrl = new URL('https://xivapi.com/character/search');
+  const searchUrl = new URL('http://127.0.0.1:5002/character/search');
   searchUrl.searchParams.set('name', name)
   searchUrl.searchParams.set('server', world)
   if (xivApiKey != null) searchUrl.searchParams.set('private_key', xivApiKey)
