@@ -156,9 +156,10 @@ class CardCreator {
       loadImage(absolute('./resources/mount.png')),
       loadImage(absolute('./resources/ilvl-icon.png')),
       loadImage(absolute('./resources/shadow.png')),
-    ]).then(([background, minion, mount, ilvl, shadow]) => {
+      loadImage(absolute('./resources/char_info.png')),
+    ]).then(([background, minion, mount, ilvl, shadow, header]) => {
       this.images = {
-        background, minion, mount, ilvl, shadow,
+        background, minion, mount, ilvl, shadow, header
       };
     });
 
@@ -350,7 +351,7 @@ class CardCreator {
 
     // Draw dark background boxes
     ctx.fillStyle = black;
-    ctx.fillRect(25, 10, 840, 100); // Name, Title, Server
+    ctx.drawImage(this.images.header ,0, 0, canvasSize.width, 120); // Name, Title, Server
     ctx.fillRect(rectStartX, rectStartRow2Y, rectHalfWidth, rectHeightRow2); // Mounts
     ctx.fillRect(rectStartXHalf, rectStartRow2Y, rectHalfWidth, rectHeightRow2); // Minions
     ctx.fillRect(rectStartX, rectStartRow3Y, rectFullWidth, rectHeightRow3); // Character information
