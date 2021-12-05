@@ -495,13 +495,13 @@ class CardCreator {
       const { ClassJobs } = Character;
       ctx.drawImage(this.classOrJobIcon(ClassJobs[0], 19, 'gladiator', 'paladin'), 480, jobsRowIcon1Y, 30, 30); // Gladiator/Paladin
       ctx.drawImage(this.classOrJobIcon(ClassJobs[1], 21, 'marauder', 'warrior'), 510, jobsRowIcon1Y, 30, 30); // Marauder/Warrior
-      ctx.drawImage(this.classOrJobIcon(ClassJobs[8], 24, 'conjurer', 'whitemage'), 630, jobsRowIcon1Y, 30, 30); // Conjurer/Whitemage
-      ctx.drawImage(this.classOrJobIcon(ClassJobs[11], 23, 'archer', 'bard'), 750, jobsRowIcon1Y, 30, 30); // Archer/Bard
-      ctx.drawImage(this.classOrJobIcon(ClassJobs[5], 22, 'lancer', 'dragoon'), 480, jobsRowIcon2Y, 30, 30); // Lancer/Dragoon
-      ctx.drawImage(this.classOrJobIcon(ClassJobs[4], 20, 'pugilist', 'monk'), 510, jobsRowIcon2Y, 30, 30); // Monk/Pugilist
-      ctx.drawImage(this.classOrJobIcon(ClassJobs[6], 30, 'rogue', 'ninja'), 540, jobsRowIcon2Y, 30, 30); // Ninja/Rogue
-      ctx.drawImage(this.classOrJobIcon(ClassJobs[14], 25, 'thaumaturge', 'blackmage'), 630, jobsRowIcon2Y, 30, 30); // Thaumaturge/Blackmage
-      ctx.drawImage(this.classOrJobIcon(ClassJobs[15], 27, 'arcanist', 'summoner'), 660, jobsRowIcon2Y, 30, 30); // Summoner/Arcanist
+      ctx.drawImage(this.classOrJobIcon(ClassJobs[4], 24, 'conjurer', 'whitemage'), 630, jobsRowIcon1Y, 30, 30); // Conjurer/Whitemage
+      ctx.drawImage(this.classOrJobIcon(ClassJobs[13], 23, 'archer', 'bard'), 750, jobsRowIcon1Y, 30, 30); // Archer/Bard
+      ctx.drawImage(this.classOrJobIcon(ClassJobs[9], 22, 'lancer', 'dragoon'), 480, jobsRowIcon2Y, 30, 30); // Lancer/Dragoon
+      ctx.drawImage(this.classOrJobIcon(ClassJobs[8], 20, 'pugilist', 'monk'), 510, jobsRowIcon2Y, 30, 30); // Monk/Pugilist
+      ctx.drawImage(this.classOrJobIcon(ClassJobs[10], 30, 'rogue', 'ninja'), 540, jobsRowIcon2Y, 30, 30); // Ninja/Rogue
+      ctx.drawImage(this.classOrJobIcon(ClassJobs[16], 25, 'thaumaturge', 'blackmage'), 630, jobsRowIcon2Y, 30, 30); // Thaumaturge/Blackmage
+      ctx.drawImage(this.classOrJobIcon(ClassJobs[17], 27, 'arcanist', 'summoner'), 660, jobsRowIcon2Y, 30, 30); // Summoner/Arcanist
     }
 
     // Classes & Jobs - levels
