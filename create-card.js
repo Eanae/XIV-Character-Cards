@@ -276,6 +276,15 @@ class CardCreator {
     return '0'.repeat(paddingCount) + string;
   }
 
+  jobLevel(classJobList, jobName) {
+    for (const cj of classJobList) {
+      if (cj.UnlockedState.Name === jobName) {
+        return cj.Level
+      }
+    }
+    return "0"
+  }
+
   classOrJobIcon(classJob, unlockId, className, jobName) {
     if (classJob?.UnlockedState?.ID === unlockId) return this.cjIcons[jobName];
     else return this.cjIcons[className];
@@ -296,7 +305,7 @@ class CardCreator {
    * const card = new CardCreator();
    * const lodestoneId = '13821878';
    * 
-   * await card.ensureInit();
+   * await card.ensureIni();
    * const png = await card.createCard(lodestoneId);
    * 
    * fs.writeFile('./test.png', png, err => {
@@ -514,72 +523,72 @@ class CardCreator {
 
       // First row
       let rowTextX = jobsRowTextStartX;
-      ctx.fillText(ClassJobs[0].Level, rowTextX, jobsRowText1Y); // Gladiator/Paladin
+      ctx.fillText(this.jobLevel(ClassJobs, "Paladin"), rowTextX, jobsRowText1Y); // Gladiator/Paladin
       rowTextX += jobsRowTextSize;
-      ctx.fillText(ClassJobs[1].Level, rowTextX, jobsRowText1Y); // Marauder/Warrior
+      ctx.fillText(this.jobLevel(ClassJobs, "Warrior"), rowTextX, jobsRowText1Y); // Marauder/Warrior
       rowTextX += jobsRowTextSize;
-      ctx.fillText(ClassJobs[2].Level, rowTextX, jobsRowText1Y); // Darkknight
+      ctx.fillText(this.jobLevel(ClassJobs, "Dark knight"), rowTextX, jobsRowText1Y); // Darkknight
       rowTextX += jobsRowTextSize;
-      ctx.fillText(ClassJobs[3].Level, rowTextX, jobsRowText1Y); // Gunbreaker
+      ctx.fillText(this.jobLevel(ClassJobs, "Gunbreaker"), rowTextX, jobsRowText1Y); // Gunbreaker
       rowTextX += jobsRowTextSpacer;
-      ctx.fillText(ClassJobs[4].Level, rowTextX, jobsRowText1Y); // Conjurer/Whitemage
+      ctx.fillText(this.jobLevel(ClassJobs, "White mage"), rowTextX, jobsRowText1Y); // Conjurer/Whitemage
       rowTextX += jobsRowTextSize;
-      ctx.fillText(ClassJobs[5].Level >= 30 ? ClassJobs[9].Level : '0', rowTextX, jobsRowText1Y); // Scholar
+      ctx.fillText(this.jobLevel(ClassJobs, "Scholar") >= 30 ? this.jobLevel(ClassJobs, "Scholar") : '0', rowTextX, jobsRowText1Y); // Scholar
       rowTextX += jobsRowTextSize;
-      ctx.fillText(ClassJobs[6].Level, rowTextX, jobsRowText1Y); // Astrologian
+      ctx.fillText(this.jobLevel(ClassJobs, "Astrologian"), rowTextX, jobsRowText1Y); // Astrologian
       rowTextX += jobsRowTextSize;
-      ctx.fillText(ClassJobs[7].Level, rowTextX, jobsRowText1Y); // Sage
+      ctx.fillText(this.jobLevel(ClassJobs, "Sage"), rowTextX, jobsRowText1Y); // Sage
       rowTextX += jobsRowTextSize;
       // Classes start moving after this
-      ctx.fillText(ClassJobs[13].Level, rowTextX, jobsRowText1Y); // Archer/Bard
+      ctx.fillText(this.jobLevel(ClassJobs, "Bard"), rowTextX, jobsRowText1Y); // Archer/Bard
       rowTextX += jobsRowTextSize;
-      ctx.fillText(ClassJobs[14].Level, rowTextX, jobsRowText1Y); // Machinist
+      ctx.fillText(this.jobLevel(ClassJobs, "Machinist"), rowTextX, jobsRowText1Y); // Machinist
       rowTextX += jobsRowTextSize;
-      ctx.fillText(ClassJobs[15].Level, rowTextX, jobsRowText1Y); // Dancer
+      ctx.fillText(this.jobLevel(ClassJobs, "Dancer"), rowTextX, jobsRowText1Y); // Dancer
 
       // Second row
       rowTextX = jobsRowTextStartX;
-      ctx.fillText(ClassJobs[9].Level, rowTextX, jobsRowText2Y); // Lancer/Dragoon
+      ctx.fillText(this.jobLevel(ClassJobs, "Dragoon"), rowTextX, jobsRowText2Y); // Lancer/Dragoon
       rowTextX += jobsRowTextSize;
-      ctx.fillText(ClassJobs[8].Level, rowTextX, jobsRowText2Y); // Monk/Pugilist
+      ctx.fillText(this.jobLevel(ClassJobs, "Monk"), rowTextX, jobsRowText2Y); // Monk/Pugilist
       rowTextX += jobsRowTextSize;
-      ctx.fillText(ClassJobs[10].Level, rowTextX, jobsRowText2Y); // Ninja/Rogue
+      ctx.fillText(this.jobLevel(ClassJobs, "Ninja"), rowTextX, jobsRowText2Y); // Ninja/Rogue
       rowTextX += jobsRowTextSize;
-      ctx.fillText(ClassJobs[11].Level, rowTextX, jobsRowText2Y); // Samurai
+      ctx.fillText(this.jobLevel(ClassJobs, "Samurai"), rowTextX, jobsRowText2Y); // Samurai
       rowTextX += jobsRowTextSize;
-      ctx.fillText(ClassJobs[12].Level, rowTextX, jobsRowText2Y); // Reaper
+      ctx.fillText(this.jobLevel(ClassJobs, "Reaper"), rowTextX, jobsRowText2Y); // Reaper
       rowTextX += jobsRowTextSize;
-      ctx.fillText(ClassJobs[16].Level, rowTextX, jobsRowText2Y); // Thaumaturge/Blackmage
+      ctx.fillText(this.jobLevel(ClassJobs, "Black mage"), rowTextX, jobsRowText2Y); // Thaumaturge/Blackmage
       rowTextX += jobsRowTextSize;
-      ctx.fillText(ClassJobs[17].Level, rowTextX, jobsRowText2Y); // Summoner/Arcanist
+      ctx.fillText(this.jobLevel(ClassJobs, "Summoner"), rowTextX, jobsRowText2Y); // Summoner/Arcanist
       rowTextX += jobsRowTextSize;
-      ctx.fillText(ClassJobs[18].Level, rowTextX, jobsRowText2Y); // Redmage
+      ctx.fillText(this.jobLevel(ClassJobs, "Red mage"), rowTextX, jobsRowText2Y); // Redmage
       rowTextX += jobsRowTextSize;
-      ctx.fillText(ClassJobs[19].Level, 796, jobsRowText2Y); // Bluemage
+      ctx.fillText(this.jobLevel(ClassJobs, "Blue mage"), 796, jobsRowText2Y); // Bluemage
 
       // Third row
       rowTextX = jobsRowTextStartX;
-      ctx.fillText(ClassJobs[20].Level, rowTextX, jobsRowText3Y); // Carpenter
+      ctx.fillText(this.jobLevel(ClassJobs, "Carpenter"), rowTextX, jobsRowText3Y); // Carpenter
       rowTextX += jobsRowTextSize;
-      ctx.fillText(ClassJobs[21].Level, rowTextX, jobsRowText3Y); // Blacksmith
+      ctx.fillText(this.jobLevel(ClassJobs, "Blacksmith"), rowTextX, jobsRowText3Y); // Blacksmith
       rowTextX += jobsRowTextSize;
-      ctx.fillText(ClassJobs[22].Level, rowTextX, jobsRowText3Y); // Armorer
+      ctx.fillText(this.jobLevel(ClassJobs, "Armorer"), rowTextX, jobsRowText3Y); // Armorer
       rowTextX += jobsRowTextSize;
-      ctx.fillText(ClassJobs[23].Level, rowTextX, jobsRowText3Y); // Goldsmith
+      ctx.fillText(this.jobLevel(ClassJobs, "Goldsmith"), rowTextX, jobsRowText3Y); // Goldsmith
       rowTextX += jobsRowTextSize;
-      ctx.fillText(ClassJobs[24].Level, rowTextX, jobsRowText3Y); // Leatherworker
+      ctx.fillText(this.jobLevel(ClassJobs, "Leatherworker"), rowTextX, jobsRowText3Y); // Leatherworker
       rowTextX += jobsRowTextSize;
-      ctx.fillText(ClassJobs[25].Level, rowTextX, jobsRowText3Y); // Weaver
+      ctx.fillText(this.jobLevel(ClassJobs, "Weaver"), rowTextX, jobsRowText3Y); // Weaver
       rowTextX += jobsRowTextSize;
-      ctx.fillText(ClassJobs[26].Level, rowTextX, jobsRowText3Y); // Alchemist
+      ctx.fillText(this.jobLevel(ClassJobs, "Alchemist"), rowTextX, jobsRowText3Y); // Alchemist
       rowTextX += jobsRowTextSize;
-      ctx.fillText(ClassJobs[27].Level, rowTextX, jobsRowText3Y); // Culinarian
+      ctx.fillText(this.jobLevel(ClassJobs, "Culinarian"), rowTextX, jobsRowText3Y); // Culinarian
       rowTextX += jobsRowTextSpacer;
-      ctx.fillText(ClassJobs[28].Level, rowTextX, jobsRowText3Y); // Miner
+      ctx.fillText(this.jobLevel(ClassJobs, "Miner"), rowTextX, jobsRowText3Y); // Miner
       rowTextX += jobsRowTextSize;
-      ctx.fillText(ClassJobs[29].Level, rowTextX, jobsRowText3Y); // Botanist
+      ctx.fillText(this.jobLevel(ClassJobs, "Botanist"), rowTextX, jobsRowText3Y); // Botanist
       rowTextX += jobsRowTextSize;
-      ctx.fillText(ClassJobs[30].Level, rowTextX, jobsRowText3Y); // Fisher
+      ctx.fillText(this.jobLevel(ClassJobs, "Fisher"), rowTextX, jobsRowText3Y); // Fisher
     }
 
     // Remaining asynchronous drawing
