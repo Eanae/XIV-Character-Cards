@@ -403,7 +403,7 @@ class CardCreator {
       ctx.drawImage(this.cjIcons.reaper, 600, jobsRowIcon2Y, 30, 30); // Reaper
       ctx.drawImage(this.cjIcons.viper, 630, jobsRowIcon2Y, 30, 30); // Reaper
       ctx.drawImage(this.cjIcons.redmage, 720, jobsRowIcon2Y, 30, 30); // Redmage
-      ctx.drawImage(this.cjIcons.bluemage, 780, jobsRowIcon2Y, 33, 33); // Bluemage
+      ctx.drawImage(this.cjIcons.bluemage, 810, jobsRowIcon2Y, 33, 33); // Bluemage
 
       ctx.drawImage(this.cjIcons.carpenter, 480, jobsRowIcon3Y, 30, 30); // Carpenter
       ctx.drawImage(this.cjIcons.blacksmith, 510, jobsRowIcon3Y, 30, 30); // Blacksmith
@@ -561,13 +561,18 @@ class CardCreator {
       rowTextX += jobsRowTextSize;
       ctx.fillText(this.jobLevel(ClassJobs, "Reaper"), rowTextX, jobsRowText2Y); // Reaper
       rowTextX += jobsRowTextSize;
+      ctx.fillText(this.jobLevel(ClassJobs, "Viper"), rowTextX, jobsRowText2Y); // Viper
+      rowTextX += jobsRowTextSize;
       ctx.fillText(this.jobLevel(ClassJobs, "Black mage"), rowTextX, jobsRowText2Y); // Thaumaturge/Blackmage
       rowTextX += jobsRowTextSize;
       ctx.fillText(this.jobLevel(ClassJobs, "Summoner"), rowTextX, jobsRowText2Y); // Summoner/Arcanist
       rowTextX += jobsRowTextSize;
       ctx.fillText(this.jobLevel(ClassJobs, "Red mage"), rowTextX, jobsRowText2Y); // Redmage
       rowTextX += jobsRowTextSize;
-      ctx.fillText(this.jobLevel(ClassJobs, "Blue mage"), 796, jobsRowText2Y); // Bluemage
+      ctx.fillText(this.jobLevel(ClassJobs, "Pictomancer"), rowTextX, jobsRowText2Y); // Pictomancer
+      rowTextX += jobsRowTextSize;
+      rowTextX += jobsRowTextSize;
+      ctx.fillText(this.jobLevel(ClassJobs, "Blue mage"), rowTextX, jobsRowText2Y); // Bluemage
 
       // Third row
       rowTextX = jobsRowTextStartX;
